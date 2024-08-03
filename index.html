@@ -29,6 +29,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 12px;
             padding: 6px 12px;
+            font-weight: bold;
         }
 
         #title {
@@ -55,6 +56,40 @@
         .text {
             text-align: justify;
         }
+
+        .slogan {
+            background-color: blanchedalmond;
+            font-size: 3px;
+        }
+
+        .video {
+            display: block;
+        }
+
+        #bmi-table {
+            width: 600px;
+            height: 200px;
+            background-color: aqua;
+            margin: 0 auto;
+        }
+
+        #bmi-table thead {
+            background-color: blanchedalmond;
+            color: chocolate;
+
+        }
+
+        #bmi-table th {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #bmi-table tbody {
+            background-color: rgb(226, 221, 221);
+            font-size: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
+        }
     </style>
 
 
@@ -72,7 +107,9 @@
         <p>除了塑造好身材，透過健身可以刺激我們身體的肌肉，再搭配飲食的控制，這能大大幫助我們的肌肉量增加，以及讓我們的肌肉更加的結實。</p>
 
         <em style="background-color: aqua;">如果你對健身仍然保持著懷疑的態度</em>，那你大可以去看看你喜歡的健身老戲骨幹，他們是如何做到年過50/60歲，依舊在
-        舞臺上或者是電影螢幕上綻放光彩。</em><b><u>答案就是堅持運動健身!</u></b>
+        舞臺上或者是電影螢幕上綻放光彩。</em><b><u><span class="slogan">
+                    答案就是堅持運動健身!</span></u></b>
+        <!-- 因為div會有自帶display:block的效果，要改變行內特定區段的效果建議用span比較好 -->
         </p>
 
     </div>
@@ -125,7 +162,7 @@
 
 
     <div class="banner">一天所需卡路里</div>
-    <table border="1">
+    <table border="1" id="bmi-table">
         <thead>
             <tr>
                 <th>每天活動量</th>
@@ -170,7 +207,7 @@
 
     <div class="banner">健身影片</div>
     <!-- 下了display:inline-block之後文字和影片會黏在一起，下p或div都可以解決，div自動會有display:block的功能在，p是會自帶換行 -->
-    <div>
+    <p class="video">
         <iframe width="48%" height="300px" src="https://www.youtube.com/embed/L1BTJsDAWjo"
             title="7 分鐘居家徒手腹肌訓練【初級版】無裝備｜7 Min Standing Abs workout｜非常適合初學者入門也有效加强核心的訓練｜男生和女生都適合的健身訓練【健身運動】"
             frameborder="0"
@@ -180,7 +217,7 @@
             title="30分钟全程站立有氧燃脂操｜无跳跃无深蹲膝友好,小空间无工具【周六野Zoey】" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
+    </p>
 
     <hr>
     <video width="100%" src="video/sample_960x540.mp4" controls></video>
