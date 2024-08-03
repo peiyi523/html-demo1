@@ -10,7 +10,7 @@
     <style>
         form {
             background-color: antiquewhite;
-            width: 400px;
+            width: 30%;
             margin: auto;
             padding: 16px;
             color: darkblue;
@@ -20,9 +20,9 @@
         }
 
         input {
-            margin: 2px 24px;
+            margin: 2px 12px;
             padding: 4px;
-            width: 200px;
+            width: 70%;
         }
 
         button {
@@ -32,6 +32,29 @@
             border-radius: 6px;
             width: 50px;
             display: inline-block;
+        }
+
+        /* RWD寫在最後面且先吃大再吃小 */
+        @media screen and (max-width:768px) {
+            form {
+                width: 30%;
+            }
+
+        }
+
+        @media screen and (max-width:568px) {
+            form {
+                width: 60%;
+            }
+
+        }
+
+        @media screen and (max-width:368px) {
+            form {
+                width: 90%;
+            }
+
+        }
     </style>
 
 
