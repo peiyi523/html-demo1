@@ -1,0 +1,62 @@
+<!DOCTYPE>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Demo</title>
+</head>
+
+<body>
+    <h1>Hello JavaScript!</h1>
+
+
+    <!-- 元素寫在上方區，下方才寫script來控制上方元素會比較好 -->
+    <script>
+        let x = 10;
+        let y = 20;
+        const PI = 3.1415926;
+        // 不可變的變數用const宣告
+        x = 20;
+        let z = x + y;
+        // PI = 10;
+        console.log(z);
+        console.log(x - y);
+        // 取得圓面積邏輯
+        // let radius = prompt("請輸入半徑");
+        // prompt等同於input會出現一個提示框等待輸入
+
+        /**
+         * prompt => 提示輸入
+         * log => 輸出
+         * 字串可以跟數值透過'+'進行運算
+         * 使用let => 進行變數宣告
+         * typeof => 觀察變數型態
+         */
+        // 取得圓面積邏輯
+        // console.log(typeof (radius));
+        // let area = radius ** 2 * PI;
+        // let result = "半徑為:" + radius + "面積為:" + area;
+        // console.log(result);
+        // document.write(result);
+        // alert(result);
+
+        // 計算BMI程式練習
+        let name = prompt("請輸入姓名")
+        let height = prompt("請輸入身高")
+        let weight = prompt("請輸入體重")
+        let bmi = weight / (height / 100) ** 2
+        let BMI = name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2)
+        console.log(BMI);
+        document.write(BMI);
+        document.write("<br>" + name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2))
+        document.write(`<h1>${name}</h1>`)
+        document.write(`<li>身高:${height}</li>`)
+        document.write(`<li>體重:${weight}</li>`)
+        document.write(`<li>BMI:${bmi.toFixed(2)}</li>`)
+
+
+    </script>
+</body>
+
+</html>
