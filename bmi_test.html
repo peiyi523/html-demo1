@@ -42,18 +42,44 @@
         // alert(result);
 
         // 計算BMI程式練習
-        let name = prompt("請輸入姓名")
-        let height = prompt("請輸入身高")
-        let weight = prompt("請輸入體重")
-        let bmi = weight / (height / 100) ** 2
-        let BMI = name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2)
-        console.log(BMI);
-        document.write(BMI);
-        document.write("<br>" + name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2))
-        document.write(`<h1>${name}</h1>`)
-        document.write(`<li>身高:${height}</li>`)
-        document.write(`<li>體重:${weight}</li>`)
-        document.write(`<li>BMI:${bmi.toFixed(2)}</li>`)
+        // 若輸入三次
+        // for (let i = 0; i < 3; i++) 
+        let count = 0;
+        while (true) {
+            if (count == 3) {
+                break;
+            }
+            let name = prompt("請輸入姓名")
+            let height = prompt("請輸入身高")
+            let weight = prompt("請輸入體重")
+            // 提示身高/體重輸入不能為空
+            // 在javascrip中 or=>|| and=>&&
+
+            if (height == "" || weight == "") {
+                aletr("輸入不能為空!");
+            }
+            else {
+
+                // 身高/體重  1~500(包含1,500)，否則警告輸入數值不正確，不做計算
+                let bmi = weight / (height / 100) ** 2;
+
+                if (isNaN(bmi)) {
+                    alert("輸入不正確!");
+
+                } else {
+                    document.write(`<h1>${name}</h1>`);
+                    document.write(`<li>身高:${height}</li>`);
+                    document.write(`<li>體重:${weight}</li>`);
+                    document.write(`<li>BMI:${bmi.toFixed(2)}</li>`);
+                    // count+=1
+                    count++;
+                }
+            }
+            let BMI = name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2)
+            console.log(BMI);
+            // document.write(BMI);
+            document.write("<br>" + name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2))
+        }
 
 
     </script>
