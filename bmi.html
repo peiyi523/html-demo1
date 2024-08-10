@@ -66,8 +66,8 @@
     <div id="bmi-form">
         <label for="username">姓名:</label>
         <input id="username" name="username" type="text" placeholder="peggy"><br>
-        <label for="password">密碼:</label>
-        <input id="password" name="password" type="password"><br>
+        <!-- <label for="password">密碼:</label> -->
+        <!-- <input id="password" name="password" type="password"><br> -->
         <label for="date">生日:</label>
         <input type="date" name="date"><br>
         <label for="height">身高:</label>
@@ -79,21 +79,54 @@
     </div>
     <!-- 加入返回按鈕 -->
     <a href="/">返回</a>
+    <p id="result">BMI:</p>
+    <p id="comment">
+        評語
+    </p>
 
     <script>
         function calcBMI() {
-            let bmi = weightEl.value / (heightEl.value / 100) ** 2
-            alert(`BMI:${bmi.toFixed(2)}`);
 
+            if (weightEl.value == "" || heightEl.value == "") {
+                resultEl.innerHTML = `<h1 style="color:red">輸入不能為空!</h1>`;
+                return;
+            }
+            //計算BMI 
+            let bmi = weightEl.value / (heightEl.value / 100) ** 2;
+            if (isNaN(bmi)) {
+                resultEl.innerHTML = `<h1>輸入不正確!</h1>`;
+            }
+            else {
+                // isNaN 提示輸入不正確
+                resultEl.innerHTML = `<h1>BMI:${bmi.toFixed(2)}</h1>`;
+                // 增加評語
+                let comment;
+                if (bmi < 18.5) {
+                    comment = "體重過輕";
+                    color = "blue"
+                } else if (bmi < 24) {
+                    comment = "健康";
+                } else {
+                    comment = "異常";
+                }
+                commentEl.innerHTML = `<h2>${comment}</h2>`;
+            }
         }
-        let heightEl = document.querySelector("#height")
-        let weightEl = document.querySelector("#weight")
+
+        resultEl.innerHTML = `< h1 > BMI:${bmi.toFixed(2)}</h1 > `;
+        // document.write(`BMI:${ bmi.toFixed(2) } `);
+
+
+
+        let heightEl = document.querySelector("#height");
+        let weightEl = document.querySelector("#weight");
         let buttonEl = document.querySelector("button");
-        console.log(buttonEl, heightEl.value, weightEl.value);
+        let resultEl = document.querySelector("#result");
+        console.log(relult, buttonEl, heightEl.value, weightEl.value);
         // 元件.value可以取出元件的值
         // 計算BMI
         // let bmi = weightEl.value / (heightEl.value / 100) ** 2;
-        // alert(`BMI:${bmi.toFixed(2)}`)
+        // alert(`BMI:${ bmi.toFixed(2) }`)
 
 
 
