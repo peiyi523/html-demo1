@@ -95,6 +95,7 @@
             let bmi = weightEl.value / (heightEl.value / 100) ** 2;
             if (isNaN(bmi)) {
                 resultEl.innerHTML = `<h1>輸入不正確!</h1>`;
+                return;
             }
             else {
                 // isNaN 提示輸入不正確
@@ -112,17 +113,14 @@
                 commentEl.innerHTML = `<h2>${comment}</h2>`;
             }
         }
-
         resultEl.innerHTML = `< h1 > BMI:${bmi.toFixed(2)}</h1 > `;
         // document.write(`BMI:${ bmi.toFixed(2) } `);
-
-
-
         let heightEl = document.querySelector("#height");
         let weightEl = document.querySelector("#weight");
         let buttonEl = document.querySelector("button");
         let resultEl = document.querySelector("#result");
-        console.log(relult, buttonEl, heightEl.value, weightEl.value);
+        let commentEl = document.querySelector("#comment");
+        console.log(commentEl, relult, buttonEl, heightEl.value, weightEl.value);
         // 元件.value可以取出元件的值
         // 計算BMI
         // let bmi = weightEl.value / (heightEl.value / 100) ** 2;

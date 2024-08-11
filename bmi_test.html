@@ -9,8 +9,6 @@
 
 <body>
     <h1>Hello JavaScript!</h1>
-
-
     <!-- 元素寫在上方區，下方才寫script來控制上方元素會比較好 -->
     <script>
         let x = 10;
@@ -41,63 +39,92 @@
         // document.write(result);
         // alert(result);
 
-        // 計算BMI程式練習
-        // 若輸入三次
-        // for (let i = 0; i < 3; i++) 
+        /**
+         * 計算BMI程式練習
+         * 讓使用者可以輸入姓名/身高/體重
+         * 計算BMI
+         * 使用document.write輸出姓名跟bmi
+         * prompt是讓使用者得到在網頁中輸入的權利(互動)
+         * javascript中if判斷式用{}包住要判斷的邏輯
+         * isNaN函式是javascript提供的檢查非數值型態
+         */
+        // 輸入次數
+        // for (let i = 0; i < 3; i++)
         let count = 0;
         let total = 0;
+        // 使用while ture + break
         while (true) {
-            console.log(count);
-
             if (count == 2) {
                 break;
             }
-            let name = prompt("請輸入姓名");
-            let height = prompt("請輸入身高");
-            let weight = prompt("請輸入體重");
-            // 提示身高/體重輸入不能為空
-            // 在javascrip中 or=>|| and=>&&
-            if (height == "" || weight == "") {
-                alert("輸入不能為空!");
-            }
-            else {
-
-                // 身高/體重  1~500(包含1,500)，否則警告輸入數值不正確，不做計算
-                // not =>!
+            let name = prompt("姓名")
+            let height = prompt("身高");
+            let weight = prompt("體重");
+            let bmi = weight / (height / 100) ** 2;
+            // 檢查身高或體重輸入不能為空
+            // javascript中 or ==> || and==>&&
+            if (height == "" && weight == "") {
+                alert("輸入不能為空!")
+            } else {
+                // not => ! 因為函式是寫值要在start~end之間回傳true，但程式區段是設定如果沒在正常值出現警告，因為邏輯和函式相反所以加個not(!)
+                // 設定身高/體重的範圍在1~500,否則警告輸入不正確，不做計算
                 if (!isValid(height, 1, 300) || !isValid(weight, 1, 500)) {
-                    alert("輸入數值不正確(1~500)");
+                    alert("輸入的值不在正常範圍(1~500)")
                     continue;
+                    // 輸入值不在正常範圍出現警告一下之後回到原點重來，所以用continue，用break也行但要重新包區塊比較麻煩 
                 }
-
-                let bmi = weight / (height / 100) ** 2;
-
+                // 檢查輸入是否是數值
                 if (isNaN(bmi)) {
                     alert("輸入不正確!");
-
                 } else {
                     document.write(`<h1>${name}</h1>`);
                     document.write(`<li>身高:${height}</li>`);
                     document.write(`<li>體重:${weight}</li>`);
                     document.write(`<li>BMI:${bmi.toFixed(2)}</li>`);
-                    // count+=1
+                    let BMI = name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2);
+                    console.log(BMI, count);
+                    document.write(BMI);
                     count++;
                     total += bmi;
-                    let BMI = name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2)
-                    console.log(BMI);
-                    document.write(BMI);
-                    // document.write("<br>" + name + "的身高:" + height + " " + "體重:" + weight + " " + "BMI為" + bmi.toFixed(2))
-
                 }
             }
-
         }
-        // 程式練習:輸出平均BMI
-        document.write(`<h1>平均BMI:${(total / count).toFixed(2)}</h1>`)
+        // 程式練習:輸出平均bmi
+        document.write(`<h1>平均bmi:${(total / count).toFixed(2)}</h1>`)
 
-        // 函式宣告 => function
+
+        // javascript的函式(用function)可以在後面宣告
         function isValid(value, start, end) {
             return value >= start && value <= end;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </script>
 </body>
